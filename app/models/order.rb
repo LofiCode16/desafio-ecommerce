@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   before_create -> { generate_number(hash_size) }
 
-  belongs_to :user
+  has_one :user_coupon
 
   has_many :order_items
   has_many :products, through: :order_items
